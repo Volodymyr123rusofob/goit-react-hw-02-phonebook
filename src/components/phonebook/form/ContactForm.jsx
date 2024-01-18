@@ -8,8 +8,8 @@ const INITIAL_STATE = {
 };
 
 class ContactForm extends Component {
-  contactId = nanoid();
-
+  nameId = nanoid();
+  numberId = nanoid();
   state = {
     ...INITIAL_STATE,
   };
@@ -21,31 +21,31 @@ class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit({ ...this.state });
+    this.props.onSubmit(this.state);
     this.setState({ ...INITIAL_STATE });
   };
 
   render() {
-    const { contactId, handleSubmit, handleChange } = this;
+    const { nameId, numberId, handleSubmit, handleChange } = this;
     const { name, number } = this.state;
 
     return (
       <form onSubmit={handleSubmit} className={style.form} action="">
-        <label htmlFor={contactId}>Name</label>
+        <label htmlFor={nameId}>Name</label>
         <input
           value={name}
           onChange={handleChange}
-          id={contactId}
+          id={nameId}
           className={style.inp}
           type="text"
           name="name"
           required
         />
-        <label htmlFor={contactId}>Number</label>
+        <label htmlFor={numberId}>Number</label>
         <input
           value={number}
           onChange={handleChange}
-          id={contactId}
+          id={numberId}
           className={style.inp}
           type="tel"
           name="number"

@@ -64,11 +64,11 @@ class App extends Component {
 
     const normalizedFilter = filter.toLowerCase();
 
-    const FilteredContact = contacts.filter(({ name }) => {
+    const filteredContact = contacts.filter(({ name }) => {
       const normalizedName = name.toLowerCase();
       return normalizedName.includes(normalizedFilter);
     });
-    return FilteredContact;
+    return filteredContact;
   }
 
   render() {
